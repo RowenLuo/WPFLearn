@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,7 +33,12 @@ namespace Homework
             var openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
-                var fileContent = File.ReadAllText(openFileDialog.FileName);
+                var fileName = openFileDialog.FileName;
+                var assembly = Assembly.LoadFile(fileName);
+                var customAttribuets = assembly.CustomAttributes;
+                if (customAttribuets != null)
+                {
+                }
             }
         }
 
