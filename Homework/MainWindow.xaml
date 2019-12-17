@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title=".NET Reflector" Height="600" Width="1000" Icon="/Resources/icon.ico" WindowStartupLocation="CenterScreen">
     <Grid>
+
         <DockPanel Height="50" VerticalAlignment="Top">
             <Menu DockPanel.Dock="Top" Height="20">
                 <MenuItem Header="_File" Width="35" Click="MenuItem_Click" >
