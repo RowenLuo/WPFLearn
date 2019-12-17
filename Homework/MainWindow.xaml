@@ -5,147 +5,154 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework"
         mc:Ignorable="d"
-        Title=".NET Reflector" Height="600" Width="1000" Icon="/Resources/icon.ico" WindowStartupLocation="CenterScreen">
-    <Grid>
-
-        <DockPanel Height="50" VerticalAlignment="Top">
-            <Menu DockPanel.Dock="Top" Height="20">
-                <MenuItem Header="_File" Width="35" Click="MenuItem_Click" >
-                    <MenuItem Header="_Open Assembly..." AutomationProperties.Name="open" Click="OpenMenuItem_Click">
-                        <MenuItem.Icon>
-                            <Image Source="/Resources/open.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="_Open Global Assembly Cache..."/>
-                    <MenuItem Header="_Open Assembly List..."/>
-                    <MenuItem Header="_Import/Export Assembly List..."/>
-                    <Separator />
-                    <MenuItem Header="_Export Assembly source code">
-                        <MenuItem.Icon>
-                            <Image Source="/Resources/save.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <Separator />
-                    <MenuItem Header="_Close Assembly">
-                        <MenuItem.Icon>
-                            <Image Source="/Resources/close.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="_Collapse All Assemblies">
-                        <MenuItem.Icon>
-                            <Image Source="/Resources/collapse.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <Separator />
-                    <MenuItem Header="_Exit" />
+        Title=".NET Reflector" Height="600" Width="1000" Icon="/Resources/icon.ico" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <DockPanel Height="Auto" Width="Auto" LastChildFill="True">
+        <Menu Width="Auto" Height="20" DockPanel.Dock="Top">
+            <MenuItem Header="_File" Width="35" Click="MenuItem_Click" >
+                <MenuItem Header="_Open Assembly..." AutomationProperties.Name="open" Click="OpenMenuItem_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/open.png" />
+                    </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Edit" Click="MenuItem_Click" Width="35">
-                    <MenuItem Header="_Copy Code Identifier"/>
+                <MenuItem Header="_Open Global Assembly Cache..."/>
+                <MenuItem Header="_Open Assembly List..."/>
+                <MenuItem Header="_Import/Export Assembly List..."/>
+                <Separator />
+                <MenuItem Header="_Export Assembly source code">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/save.png" />
+                    </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_View" Click="MenuItem_Click" Width="38">
-                    <MenuItem Header="_Back">
-                        <MenuItem.Icon>
-                            <Image Source="/Resources/back.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="_Forward">
-                        <MenuItem.Icon>
-                            <Image Source="/Resources/forward.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <Separator />
-                    <MenuItem Header="_Previous Tab"/>
-                    <MenuItem Header="_Next Tab"/>
-                    <Separator />
-                    <MenuItem Header="_Close Current Tab"/>
-                    <Separator />
-                    <MenuItem Header="_Bookmarks"/>
-                    <Separator />
-                    <MenuItem Header="_Refresh"/>
+                <Separator />
+                <MenuItem Header="_Close Assembly">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/close.png" />
+                    </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Tools" Click="MenuItem_Click" Width="40">
-                    <MenuItem Header="_Decompile"/>
-                    <MenuItem Header="_Analize"/>
-                    <MenuItem Header="_Assembly Broswer"/>
-                    <Separator />
-                    <MenuItem Header="_Search"/>
-                    <Separator />
-                    <MenuItem Header="_Search Bing"/>
-                    <MenuItem Header="_Search MSDN"/>
-                    <Separator />
-                    <MenuItem Header="_Add-Ins..."/>
-                    <Separator />
-                    <MenuItem Header="_Options..."/>
+                <MenuItem Header="_Collapse All Assemblies">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/collapse.png" />
+                    </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Help" Click="MenuItem_Click" Width="38">
-                    <MenuItem Header="_Help Topics"/>
-                    <MenuItem Header="_Check for Updates"/>
-                    <MenuItem Header="_Activate"/>
-                    <Separator />
-                    <MenuItem Header="_About .NET Reflector"/>
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Edit" Click="MenuItem_Click" Width="35">
+                <MenuItem Header="_Copy Code Identifier"/>
+            </MenuItem>
+            <MenuItem Header="_View" Click="MenuItem_Click" Width="38">
+                <MenuItem Header="_Back">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/back.png" />
+                    </MenuItem.Icon>
                 </MenuItem>
-            </Menu>
-            <StackPanel RenderTransformOrigin="0.495,0.495" Height="30" VerticalAlignment="Top">
-                <ToolBarTray DockPanel.Dock="Top">
-                    <ToolBar>
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/back.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/forward.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Separator />
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/open.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/save.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/refresh.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Separator />
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/decompile.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/back.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/search.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Separator />
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/bookmarks.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Separator />
-                        <ComboBox IsEditable="True" IsReadOnly="True" Text="C#">
-                            <ComboBoxItem Content="IL" />
-                            <ComboBoxItem Content="C#" />
-                            <ComboBoxItem Content="Visual Basic" />
-                            <ComboBoxItem Content="MC++" />
-                        </ComboBox>
-                        <ComboBox IsEditable="True" IsReadOnly="True" Text="None">
-                            <ComboBoxItem Content="None" />
-                            <ComboBoxItem Content=".NET 1.0 / C# 1 / VB 7" />
-                            <ComboBoxItem Content=".NET 2.0 / C# 2 / VB 8" />
-                            <ComboBoxItem Content=".NET 3.0 / C# 3 / VB 9" />
-                            <ComboBoxItem Content=".NET 4.0 / C# 4 / VB 10" />
-                            <ComboBoxItem Content=".NET 4.5 / C# 5 / VB 11" />
-                            <ComboBoxItem Content=".NET 4.6 / C# 6 / VB 14" />
-                            <ComboBoxItem Content=".NET 4.7 / C# 7.x / VB 14" />
-                        </ComboBox>
-                        <Separator />
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/back.png" Width="16" Height="16"></Image>
-                        </Button>
-                        <Separator />
-                        <Button Width="25" Height="25">
-                            <Image Source="/Resources/back.png" Width="16" Height="16"></Image>
-                        </Button>
-                    </ToolBar>
-                </ToolBarTray>
+                <MenuItem Header="_Forward">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/forward.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="_Previous Tab"/>
+                <MenuItem Header="_Next Tab"/>
+                <Separator />
+                <MenuItem Header="_Close Current Tab"/>
+                <Separator />
+                <MenuItem Header="_Bookmarks"/>
+                <Separator />
+                <MenuItem Header="_Refresh"/>
+            </MenuItem>
+            <MenuItem Header="_Tools" Click="MenuItem_Click" Width="40">
+                <MenuItem Header="_Decompile"/>
+                <MenuItem Header="_Analize"/>
+                <MenuItem Header="_Assembly Broswer"/>
+                <Separator />
+                <MenuItem Header="_Search"/>
+                <Separator />
+                <MenuItem Header="_Search Bing"/>
+                <MenuItem Header="_Search MSDN"/>
+                <Separator />
+                <MenuItem Header="_Add-Ins..."/>
+                <Separator />
+                <MenuItem Header="_Options..."/>
+            </MenuItem>
+            <MenuItem Header="_Help" Click="MenuItem_Click" Width="38">
+                <MenuItem Header="_Help Topics"/>
+                <MenuItem Header="_Check for Updates"/>
+                <MenuItem Header="_Activate"/>
+                <Separator />
+                <MenuItem Header="_About .NET Reflector"/>
+            </MenuItem>
+        </Menu>
+        <ToolBarTray Height="30" DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/back.png" Width="16" Height="16"></Image>
+                </Button>
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/forward.png" Width="16" Height="16"></Image>
+                </Button>
+                <Separator />
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/open.png" Width="16" Height="16"></Image>
+                </Button>
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/save.png" Width="16" Height="16"></Image>
+                </Button>
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/refresh.png" Width="16" Height="16"></Image>
+                </Button>
+                <Separator />
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/decompile.png" Width="16" Height="16"></Image>
+                </Button>
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/back.png" Width="16" Height="16"></Image>
+                </Button>
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/search.png" Width="16" Height="16"></Image>
+                </Button>
+                <Separator />
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/bookmarks.png" Width="16" Height="16"></Image>
+                </Button>
+                <Separator />
+                <ComboBox IsEditable="True" IsReadOnly="True" Text="C#">
+                    <ComboBoxItem Content="IL" />
+                    <ComboBoxItem Content="C#" />
+                    <ComboBoxItem Content="Visual Basic" />
+                    <ComboBoxItem Content="MC++" />
+                </ComboBox>
+                <ComboBox IsEditable="True" IsReadOnly="True" Text="None">
+                    <ComboBoxItem Content="None" />
+                    <ComboBoxItem Content=".NET 1.0 / C# 1 / VB 7" />
+                    <ComboBoxItem Content=".NET 2.0 / C# 2 / VB 8" />
+                    <ComboBoxItem Content=".NET 3.0 / C# 3 / VB 9" />
+                    <ComboBoxItem Content=".NET 4.0 / C# 4 / VB 10" />
+                    <ComboBoxItem Content=".NET 4.5 / C# 5 / VB 11" />
+                    <ComboBoxItem Content=".NET 4.6 / C# 6 / VB 14" />
+                    <ComboBoxItem Content=".NET 4.7 / C# 7.x / VB 14" />
+                </ComboBox>
+                <Separator />
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/back.png" Width="16" Height="16"></Image>
+                </Button>
+                <Separator />
+                <Button Width="25" Height="25">
+                    <Image Source="/Resources/back.png" Width="16" Height="16"></Image>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <StackPanel Width="350" DockPanel.Dock="Left" Margin="5">
+            <StackPanel Width="350" Height="20" Margin="0 0 0 5" Orientation="Horizontal">
+                <TextBox Text="" TextWrapping="Wrap" Width="329"/>
+                <Button Width="20" Background="White">
+                    <Image Source="/Resources/search.png" />
+                </Button>
             </StackPanel>
-        </DockPanel>
-    </Grid>
+            <TreeView Height="490" />
+        </StackPanel>
+        <StackPanel Width="629" Margin="5">
+            <TextBlock Text="TextBlock" TextWrapping="Wrap" Height="517" Margin="5"/>
+        </StackPanel>
+    </DockPanel>
 </Window>
